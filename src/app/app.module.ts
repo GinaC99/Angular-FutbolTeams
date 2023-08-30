@@ -12,6 +12,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+
+// Session Services
 import { SessionServiceService } from './services/session-service.service';
 
 
@@ -34,7 +37,8 @@ import { SearchTeamsComponent } from './components/search-teams/search-teams.com
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [SessionServiceService],
   bootstrap: [AppComponent]
