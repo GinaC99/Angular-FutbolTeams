@@ -16,7 +16,6 @@ export class LoginComponent {
     this.hide = true;
   }
   public login(event:any):void{
-    //aca va la logica de envio
     const {usuario, password} = this.userView; 
     if (usuario.length > 0 && password.length > 0 ){
       this.sessionService.registerSesion(this.userView);
