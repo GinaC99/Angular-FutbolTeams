@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="bodyComponent">
+    <div class="bodyComponent__login">
+        <img class="login__pictureHuman" src="../../../assets/img/human.png" alt="HumanPicture"/>
+        <h1>Login</h1>
+        <mat-form-field class="style_label" appearance="fill">
+            <mat-label class="style_label__input">Usuario</mat-label>
+            <input name="userName" class="style_label__input" matInput [(ngModel)]="userView.usuario">
+        </mat-form-field>
+        <mat-form-field class="style_label" appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input  name="userPassword" class="style_label__input" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="userView.password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <div>
+            <button mat-raised-button (click)="login($event)">Login</button>
+        </div>
+    </div>
+</div>
+
