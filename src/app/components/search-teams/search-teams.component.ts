@@ -67,6 +67,7 @@ export class SearchTeamsComponent {
   }
 
   public createTeam():void{
+    this.updateId.captureId(0)
     this.dialog.open(TeamFormComponent, {
       width:'50vw',
       height: '90vh'

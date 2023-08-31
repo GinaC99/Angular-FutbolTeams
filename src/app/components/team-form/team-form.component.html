@@ -1,11 +1,36 @@
-<div>
-    <div class="form_container" *ngFor="let nameColumn of namesColumns">
-        <mat-form-field>
-            <mat-label>{{nameColumn}}</mat-label>
-            <input matInput [value]="(dataTeam) || ''">
-        </mat-form-field>
-    </div>
-
+<div class="form_container">
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="teamModel.nombre">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Estadio</mat-label>
+        <input matInput [(ngModel)]="teamModel.estadio">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Fundacion</mat-label>
+        <input matInput [(ngModel)]="teamModel.fundacion">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Sitio Web</mat-label>
+        <input matInput [(ngModel)]="teamModel.sitioWeb">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Nacionalidad</mat-label>
+        <input matInput [(ngModel)]="teamModel.nacionalidad">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Entrenador</mat-label>
+        <input matInput [(ngModel)]="teamModel.entrenador">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Capacidad</mat-label>
+        <input matInput [(ngModel)]="teamModel.capacidad">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Valor</mat-label>
+        <input matInput [(ngModel)]="teamModel.valor">
+    </mat-form-field>
     <button mat-raised-button color="primary" (click)="saveTeam()">
         Guardar
     </button>

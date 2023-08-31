@@ -31,8 +31,8 @@ export class BackendServiceService {
     return this.http.get<any>(`${this.URL_BASE}equipos/listar/0/30`);
   }
 
-  public searchIdTeam(id:Number):Observable <any>{
-    return this.http.get<any>(`${this.URL_BASE}equipos/consultar/${id}`)
+  public searchIdTeam(id:Number):Observable <Team>{
+    return this.http.get<Team>(`${this.URL_BASE}equipos/consultar/${id}`)
   }
 
   public searchDateTeam(startDate:string, endDate:string):Observable <any>{
@@ -47,8 +47,8 @@ export class BackendServiceService {
     return this.http.delete<any>(`${this.URL_BASE}equipos/eliminar/${id}`)
   }
 
-  public updateTema(data:Team):Observable<any>{
+  public updateTema(data:Team):Observable<Team>{
     const { id,...all } = data
-    return this.http.put<any>(`${this.URL_BASE}/equipos/actualizar/${id}`, all )
+    return this.http.put<Team>(`${this.URL_BASE}/equipos/actualizar/${id}`, all )
   }
 }

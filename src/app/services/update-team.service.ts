@@ -4,13 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UpdateTeamService {
-  public idTeam:Number;
+  private idTeam:Number;
 
   constructor() {
     this.idTeam = 0;
   }
-  public captureId(id?:Number):Number{
-    return this.idTeam = id || this.idTeam
+  public captureId(id:Number):void{
+    this.idTeam = id;
+  }
+  public getId():Number {
+    return this.idTeam;
   }
 
 }
