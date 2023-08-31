@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {userLoginView} from '../../models/userLoginView.model';
-import { HttpClient } from '@angular/common/http';
-import { SessionServiceService } from 'src/app/services/session-service.service';
+import { BackendServiceService } from '../../services/backend-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,13 @@ import { SessionServiceService } from 'src/app/services/session-service.service'
 export class LoginComponent {
   public hide:boolean;
   public userView:userLoginView;
-  constructor(private http:HttpClient, private sessionService:SessionServiceService){
+  public data:any;
+  constructor(private backendService:BackendServiceService){
     this.userView = new userLoginView();
     this.hide = true;
   }
-  public login(event:any):void{
-    const {usuario, password} = this.userView; 
-    if (usuario.length > 0 && password.length > 0 ){
-      this.sessionService.registerSesion(this.userView);
-    }
-    console.log(this.sessionService.isLogued())
+  public login():void{
+    this.backendService.login(this.userView);
   }
+ 
 }
