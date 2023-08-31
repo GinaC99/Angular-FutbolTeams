@@ -23,15 +23,16 @@ export class BackendServiceService {
     }
     console.log(this.sessionService.isLogued())
   }
+
   public getTeams():Observable <any>{
-    return this.http.get<any>(this.URL_BASE + 'equipos/listar'+ '/0/50');
-    // .subscribe(resp => {
-    //   res = resp
-    //   console.log(resp, 'aca')
-    // });
-    // let response:Array<Team> = res?.content;
-    // console.log(res);
-    // console.log(response);
-    // return response;
+    return this.http.get<any>(`${this.URL_BASE}equipos/listar/0/30`);
+  }
+
+  public searchIdTeam(id:Number):Observable <any>{
+    return this.http.get<any>(`${this.URL_BASE}equipos/consultar/${id}`)
+  }
+
+  public searchDateTeam(startDate:string, endDate:string):Observable <any>{
+    return this.http.get<any>(`${this.URL_BASE}equipos/consultar/${startDate}/${endDate}`);
   }
 }

@@ -1,12 +1,30 @@
-<div>
+<div class="body_Search_team">
+    <div class="team_container">
+        <div class="search_container">
+            <input matInput placeholder="id Equipo" name="id_team" title="Busqueda por Id del equipo"
+            [(ngModel)]="id" type="text">
+        </div>
+        <div class="search_container">
+            <input type="date" name="start_date" title="Busqueda por fecha inicio"
+            [(ngModel)]="starDate " >
+        </div>
+        <div class="search_container">
+            <input type="date" name="end_date" title="Busqueda por fecha fin"
+            [(ngModel)]="endDate">
+        </div>
+        <div>
+            <button mat-mini-fab color="accent" (click)="choosSearchTeam()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+    </div>
     <table mat-table [dataSource]="data" class="mat-elevation-z8">
         <div *ngFor="let nameColumn of namesColumns">
             <ng-container matColumnDef={{nameColumn}}>
                 <th mat-header-cell *matHeaderCellDef>{{nameColumn}} </th>
-                <td mat-cell *matCellDef="let team">{{team[nameColumn]}}  </td>
+                <td mat-cell *matCellDef="let team">{{ team[nameColumn]}}  </td>
               </ng-container>
         </div>
-       
         <tr mat-header-row *matHeaderRowDef="namesColumns"></tr>
         <tr mat-row *matRowDef="let row; columns:namesColumns;"></tr>
     </table> 
