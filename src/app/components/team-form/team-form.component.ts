@@ -46,7 +46,7 @@ export class TeamFormComponent {
   public saveTeam(): void {
     if (this.idTeam > 0) {
       this.backendService.updateTema(this.teamModel).subscribe(res => {
-        this.backendService.getTeams();
+
       })
     } else {
       this.backendService.createTeam(this.teamModel).subscribe(res => {
