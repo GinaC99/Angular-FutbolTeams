@@ -15,7 +15,8 @@
                 <mat-icon>search</mat-icon>
             </button>
             <button mat-raised-button color="warn" [disabled]="!login"
-                title="Para realizar esta accion, necesita esta logeado ">
+                title="Para realizar esta accion, necesita esta logeado "
+                (click)="createTeam()">
                 Crear</button>
             <button mat-raised-button color="primary" (click)="logout()"
             *ngIf="login">Salir</button>

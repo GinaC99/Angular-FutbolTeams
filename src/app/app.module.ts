@@ -13,7 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 // Session Services
 import { SessionServiceService } from './services/session-service.service';
@@ -41,7 +41,8 @@ import { TeamFormComponent } from './components/team-form/team-form.component';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [SessionServiceService],
   bootstrap: [AppComponent]

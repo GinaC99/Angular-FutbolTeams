@@ -5,7 +5,7 @@ export class Team {
     public sitioWeb?:string;
     public nacionalidad?:string;
     public fundacion?:string;
-    public enrenador?:string;
+    public entrenador?:string;
     public capacidad?:number;
     public valor?:number;
     constructor(){

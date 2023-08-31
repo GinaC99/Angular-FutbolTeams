@@ -38,4 +38,8 @@ export class BackendServiceService {
   public searchDateTeam(startDate:string, endDate:string):Observable <any>{
     return this.http.get<any>(`${this.URL_BASE}equipos/consultar/${startDate}/${endDate}`);
   }
+
+  public createTeam(data:Team):Observable<any>{
+    return this.http.post<any>(`${this.URL_BASE}equipos/crear`, data)
+  }
 }
