@@ -17,13 +17,16 @@ export class BackendServiceService {
   }
 
   public login(userView:userLoginView):void{
-    const {usuario, password} =userView; 
+    const {usuario, password} = userView; 
     if (usuario.length > 0 && password.length > 0 ){
       this.sessionService.registerSesion(userView);
     }
-    console.log(this.sessionService.isLogued())
   }
 
+  public logout():void{
+    this.sessionService.cleanSession();
+  }
+  
   public getTeams():Observable <any>{
     return this.http.get<any>(`${this.URL_BASE}equipos/listar/0/30`);
   }

@@ -22,12 +22,14 @@ import { SessionServiceService } from './services/session-service.service';
 // Components
 import { LoginComponent } from './components/login/login.component';
 import { SearchTeamsComponent } from './components/search-teams/search-teams.component';
+import { TeamFormComponent } from './components/team-form/team-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SearchTeamsComponent
+    SearchTeamsComponent,
+    TeamFormComponent
   ],
   imports: [
     BrowserModule,
