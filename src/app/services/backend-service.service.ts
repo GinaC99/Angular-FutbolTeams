@@ -42,4 +42,13 @@ export class BackendServiceService {
   public createTeam(data:Team):Observable<any>{
     return this.http.post<any>(`${this.URL_BASE}equipos/crear`, data)
   }
+
+  public deleteTeam(id:Number):Observable<any>{
+    return this.http.delete<any>(`${this.URL_BASE}equipos/eliminar/${id}`)
+  }
+
+  public updateTema(data:Team):Observable<any>{
+    const { id,...all } = data
+    return this.http.put<any>(`${this.URL_BASE}/equipos/actualizar/${id}`, all )
+  }
 }

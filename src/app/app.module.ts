@@ -17,7 +17,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 // Session Services
 import { SessionServiceService } from './services/session-service.service';
-
+import { UpdateTeamService } from './services/update-team.service';
 
 // Components
 import { LoginComponent } from './components/login/login.component';
@@ -44,7 +44,10 @@ import { TeamFormComponent } from './components/team-form/team-form.component';
     MatTableModule,
     MatDialogModule
   ],
-  providers: [SessionServiceService],
+  providers: [
+    SessionServiceService,
+    UpdateTeamService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

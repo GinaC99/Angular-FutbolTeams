@@ -14,14 +14,15 @@
             <button mat-mini-fab color="accent" (click)="choosSearchTeam()">
                 <mat-icon>search</mat-icon>
             </button>
-            <button mat-raised-button color="warn" [disabled]="!login"
-                title="Para realizar esta accion, necesita esta logeado "
-                (click)="createTeam()">
-                Crear</button>
-            <button mat-raised-button color="primary" (click)="logout()"
-            *ngIf="login">Salir</button>
-            <button mat-raised-button color="primary" (click)="goLogin()"
-            *ngIf="!login">Ingresar</button>
+            <button mat-mini-fab color="primary" [disabled]="!login"
+                title="Para realizar esta accion, necesita esta logeado " (click)="createTeam()">
+                <mat-icon>library_add</mat-icon></button>
+            <button mat-raised-button color="primary" (click)="logout()" *ngIf="login">Salir</button>
+            <button mat-mini-fab color="primary" (click)="goLogin()" *ngIf="!login">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" (click)="cleanFilters()">
+                Limipiar</button>
         </div>
     </div>
     <table mat-table [dataSource]="data" class="mat-elevation-z8">
@@ -30,12 +31,19 @@
                 <th mat-header-cell *matHeaderCellDef>{{nameColumn}} </th>
                 <td mat-cell *matCellDef="let team">
                     {{team[nameColumn]}}
-                    <button *ngIf="nameColumn == 'accion'" [disabled]="!login"
-                        title="Para realizar esta accion, necesita esta logeado ">
+                    <button mat-mini-fab color="warn" *ngIf="nameColumn == 'accion'" [disabled]="!login"
+                        title="Para realizar esta accion, necesita esta logeado" (click)="deleteTeam(team.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="warn" *ngIf="nameColumn == 'accion'"
+                        title="Para realizar esta accion, necesita esta logeado" (click)="deleteTeam(team.id)">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <button *ngIf="nameColumn == 'accion'" [disabled]="!login" [title]="!login
+                         ? 'Para realizar esta accion, necesita esta logeado'
+                        :'Actualizar informacion del equipo'" (click)="updateTeam(team.id)">
                         actualizar
                     </button>
-                    <button *ngIf="nameColumn == 'accion'" [disabled]="!login"
-                        title="Para realizar esta accion, necesita esta logeado ">borrar</button>
                 </td>
             </ng-container>
         </div>

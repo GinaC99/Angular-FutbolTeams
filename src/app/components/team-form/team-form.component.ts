@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Team } from '../../models/team.model';
 import { BackendServiceService } from '../../services/backend-service.service';
+import { UpdateTeamService } from 'src/app/services/update-team.service';
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -14,9 +15,25 @@ export interface DialogData {
 export class TeamFormComponent {
   public teamModel:Team;
   public idNewTeam:Number;
-  constructor (private backendService:BackendServiceService){
+  public namesColumns: string[];
+  public idTeam:Number;
+  public dataTeam:Object;
+  constructor (
+    private backendService:BackendServiceService,
+    private updateId:UpdateTeamService,
+    ){
     this.teamModel = new Team();
     this.idNewTeam = 0;
+    this.namesColumns = Object.getOwnPropertyNames(this.teamModel);
+    this.idTeam = 0;
+    this.dataTeam = {}
+  }
+
+  ngOnInit():void{
+    this.idTeam = this.updateId.captureId();
+    if (this.idTeam > 0){
+      this.backendService.searchIdTeam(this.idTeam).subscribe(res => this.dataTeam = res)
+    }
   }
 
   public saveTeam():void{
