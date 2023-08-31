@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SearchTeamsComponent } from './components/search-teams/search-teams.component';
+import { TeamFormComponent } from './components/team-form/team-form.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'forms',
+    component: TeamFormComponent
   }
 ];
 
