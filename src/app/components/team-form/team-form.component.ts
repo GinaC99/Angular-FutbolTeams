@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Team } from '../../models/team.model';
 import { BackendServiceService } from '../../services/backend-service.service';
 import { UpdateTeamService } from 'src/app/services/update-team.service';
@@ -44,11 +44,10 @@ export class TeamFormComponent {
   }
 
   public saveTeam(): void {
-    if (this.idTeam > 0){
+    if (this.idTeam > 0) {
       this.backendService.updateTema(this.teamModel).subscribe(res => {
-        
+        this.backendService.getTeams();
       })
-      console.log(this.teamModel);
     } else {
       this.backendService.createTeam(this.teamModel).subscribe(res => {
         this.idNewTeam = res.id

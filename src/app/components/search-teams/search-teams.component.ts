@@ -92,4 +92,9 @@ export class SearchTeamsComponent {
     this.endDate = ''
     this.getDataTeams()
   }
+
+  public updateData():void {
+    this.getDataTeams()
+  }
+
 }
